@@ -21,7 +21,7 @@ from port_folio import views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('addme/', admin.site.urls),
     path('',views.home,name='home'),
     path('blog/', include('blog.urls')),
 ]
