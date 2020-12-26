@@ -1,0 +1,41 @@
+{% extends 'port_folio/base.html' %}
+{% load static %}
+
+
+
+
+{% block body_block %}
+
+  <div class="row justify-content-center my-3 ">
+    <img src="{% static 'port_folio/Sai_varshan.jpg' %}" alt="Sorry" height="200" width="250">
+  </div>
+
+
+  <a href="{% static 'port_folio/reume.pdf' %}"></a>
+  <div class="container col-md-9 text-center text_in_home">
+    <h1>Hi! Thank You for coming to my Website</h1>
+    <h3>Down below are some courses which I learnt python and website development.<br> These are awesome courses where you can learn programming. </h3>
+    <h3>Click in the title for more details!</h3>
+
+  </div>
+  <hr>
+  <div class="container courses col-lg-4 col-md-6">
+    {% for course in courses %}
+    {% if course.url %}
+      <a class="bloglink" href="{{ course.url }}"><h3>{{ course.title }}</h3></a>
+    {% else %}
+      <h3>{{ course.title }}</h3>
+    {% endif %}
+
+      <p>{{ course.description }}</p>
+
+      {% if course.url %}
+        <br><a href="{{ course.url }}"><img src="{{ course.image.url }}" alt="" height="150" class="img-fluid mb-2"></a>
+      {% else %}
+        <img src="{{ course.image.url }}" alt="" height="150" class="img-fluid mb-2">
+      {% endif %}
+      <br>
+    {% endfor %}
+  </div>
+
+{% endblock %}
