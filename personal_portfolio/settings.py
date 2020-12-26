@@ -125,3 +125,10 @@ STATIC_ROOT = Path.joinpath(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = Path.joinpath(BASE_DIR,'media')
+
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("No local_settings.")
